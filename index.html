@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه تعاملی</title> <!-- Title will be set dynamically -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="cv-container">
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-picture">
+                    <img src="" alt="Profile Picture">
+                </div>
+                <h1></h1>
+                <p></p>
+            </div>
+            <ul class="tabs">
+                <li><a href="#home" class="tab-link active" data-tab="home">خانه</a></li>
+                <li><a href="#projects" class="tab-link" data-tab="projects">پروژه‌ها</a></li>
+                <li><a href="#experiences" class="tab-link" data-tab="experiences">سوابق کاری</a></li>
+                <li><a href="#skills-education" class="tab-link" data-tab="skills-education">مهارت‌ها و تحصیلات</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <!-- HOME PANEL (Content will be injected here) -->
+            <section id="home" class="content-panel active">
+                <h2 class="section-header">درباره من</h2>
+                <p class="about-me-summary"></p>
+                <div class="key-info-grid"></div>
+                <div class="contact-links"></div>
+            </section>
+
+            <!-- PROJECTS PANEL (Content will be injected here) -->
+            <section id="projects" class="content-panel">
+                <h2 class="section-header">پروژه‌های من</h2>
+                <div class="projects-grid"></div>
+            </section>
+            
+            <!-- EXPERIENCES PANEL (Content will be injected here) -->
+            <section id="experiences" class="content-panel">
+                <h2 class="section-header">سوابق کاری</h2>
+                <div class="experiences-container"></div>
+            </section>
+            
+            <!-- SKILLS & EDUCATION PANEL (Content will be injected here) -->
+            <section id="skills-education" class="content-panel">
+                <h2 class="section-header">مهارت‌های فنی</h2>
+                <div class="skills-grid"></div>
+                <h2 class="section-header" style="margin-top: 2.5rem; margin-bottom: 1.5rem;">تحصیلات</h2>
+                <div class="education-container"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="template-footer">
+        <p>ساخته شده با <a href="https://github.com/MahdiHoseinpoor/JSON-Resume-Kit" target="_blank" rel="noopener noreferrer">JSON Resume Kit</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

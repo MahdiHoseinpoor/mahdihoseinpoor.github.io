@@ -1,0 +1,118 @@
+{
+  "profile": {
+    "name": "مهدی حسین پور",
+    "title": "توسعه دهنده دات نت",
+    "imageUrl": "https://avatars.githubusercontent.com/u/72643828",
+    "summary": "من دانشجوی کارشناسی علوم کامپیوتر در دانشگاه شهید بهشتی و توسعه‌دهنده‌ی بک‌اند با تجربه عملی در C# و ASP.NET هستم. از دوران دبیرستان وارد حوزه برنامه‌نویسی شده‌ام و تاکنون پروژه‌های متعددی را طراحی و پیاده‌سازی کرده‌ام. در میان آن‌ها، پروژه متن‌باز Backender از شاخص‌ترین دستاوردهایم به شمار می‌رود که تاکنون بیش از ۱۴ هزار بار در NuGet دانلود شده است.\n",
+    "keyInfo": [
+      {
+        "title": "نقش اصلی",
+        "value": "توسعه دهنده دات نت"
+      },
+      {
+        "title": "مهارت های کلیدی",
+        "value": "C#, .NET, EntityFramework, Asp.net, Git"
+      }
+    ],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/MahdiHoseinpoor"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mahdihoseinpoor"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "Backender",
+      "imageUrl": "https://github.com/MahdiHoseinpoor/Backender/raw/master/docs/Banner.jpg",
+      "description": "تولیدکننده بک‌اند متن‌باز با C# که زیرساخت پروژه را به صورت خودکار ایجاد می‌کند.",
+      "technologies": [
+        "C#",
+        ".NET",
+        "Code Gen"
+      ]
+    },
+    {
+      "title": "EasyPay",
+      "imageUrl": "https://dummyimage.com/1200x630/000/fff&text=EasyPay",
+      "description": "پلتفرم مالی مدرن با NET 9. که بر اساس اصول CQRS, DDD و Clean Architecture ساخته شده است.",
+      "technologies": [
+        ".NET 9",
+        "CQRS",
+        "DDD",
+        "Blazor"
+      ]
+    },
+    {
+      "title": "JSocket2",
+      "imageUrl": "https://github.com/MahdiHoseinpoor/JSocket2/raw/main/images/header1.png",
+      "description": " فریمورک جاوا برگرفته از Asp.net برای ساخت اپلیکیشن‌های کلاینت-سرور",
+      "technologies": [
+        "Java",
+        "Sockets",
+        "Design Patterns",
+        "OOP"
+      ]
+    },
+    {
+      "title": "Telegram Clone",
+      "imageUrl": "https://dummyimage.com/1200x630/000/fff&text=Telegram Clone",
+      "description": "پروژه نهایی مبانی برنامه نویسی پیشرفته - ساخت کلاینت و سرور تلگرام با استفاده از java",
+      "technologies": [
+        "JavaFX",
+        "PostgreSQL",
+        "JScoket2",
+        "Java"
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "company": "دانشگاه شهید بهشتی",
+      "role": "TA برنامه نویسی مقدماتی",
+      "date": " مهر 1404 - اکنون",
+      "responsibilities": []
+    },
+    {
+      "company": "آژانس دیجیتال مارکتینگ اسپاد",
+      "role": "برنامه نویس backend",
+      "date": "تیر 1400 - آذر 1400",
+      "responsibilities": []
+    }
+  ],
+  "skills": [
+    {
+      "category": "زبان‌ها و فریمورک‌ها",
+      "items": [
+        "C#",
+        "Java",
+        "SQL",
+        ".NET",
+        "ASP.NET Core",
+        "Entity Framework",
+        "Blazor"
+      ]
+    },
+    {
+      "category": "معماری و ابزارها",
+      "items": [
+        "Clean Architecture",
+        "DDD",
+        "CQRS",
+        "Git",
+        "NuGet"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "دانشگاه شهید بهشتی",
+      "degree": "کارشناسی علوم کامپیوتر",
+      "date": "مهر ۱۴۰۳ - اکنون"
+    }
+  ]
+}
