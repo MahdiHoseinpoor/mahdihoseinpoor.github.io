@@ -1,69 +1,91 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رزومه تعاملی</title> <!-- Title will be set dynamically -->
+    <title>مهدی حسین پور | توسعه دهنده دات نت</title>
+    <meta name="description" content="Portfolio of Mahdi Hoseinpoor, a .NET Developer.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
 </head>
+
 <body>
 
-    <div class="cv-container">
-        <aside class="sidebar">
-            <div class="profile">
-                <div class="profile-picture">
-                    <img src="" alt="Profile Picture">
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">مهدی حسین پور</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#profile" class="nav-link">معرفی</a></li>
+                    <li><a href="#projects" class="nav-link">پروژه‌ها</a></li>
+                    <li><a href="#experience" class="nav-link">تجربه</a></li>
+                    <li><a href="#skills" class="nav-link">مهارت‌ها</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Profile/Hero Section -->
+        <section id="profile" class="profile-section container"></section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">پروژه‌های منتخب</h2>
+                <div class="projects-grid">
+                    <!-- Project cards will be injected here by JS -->
                 </div>
-                <h1></h1>
-                <p></p>
             </div>
-            <ul class="tabs">
-                <li><a href="#home" class="tab-link active" data-tab="home">خانه</a></li>
-                <li><a href="#projects" class="tab-link" data-tab="projects">پروژه‌ها</a></li>
-                <li><a href="#experiences" class="tab-link" data-tab="experiences">سوابق کاری</a></li>
-                <li><a href="#skills-education" class="tab-link" data-tab="skills-education">مهارت‌ها و تحصیلات</a></li>
-            </ul>
-        </aside>
+        </section>
 
-        <main class="content-area">
-            <!-- HOME PANEL (Content will be injected here) -->
-            <section id="home" class="content-panel active">
-                <h2 class="section-header">درباره من</h2>
-                <p class="about-me-summary"></p>
-                <div class="key-info-grid"></div>
-                <div class="contact-links"></div>
-            </section>
+        <!-- Experience & Education Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="timeline-container">
+                    <div class="timeline-column" id="experience-column">
+                        <h2 class="section-title">سوابق کاری</h2>
+                        <div class="timeline" id="experience-timeline">
+                            <!-- Experience items will be injected here by JS -->
+                        </div>
+                    </div>
+                    <div class="timeline-column" id="education-column">
+                        <h2 class="section-title">تحصیلات</h2>
+                        <div class="timeline" id="education-timeline">
+                             <!-- Education items will be injected here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- PROJECTS PANEL (Content will be injected here) -->
-            <section id="projects" class="content-panel">
-                <h2 class="section-header">پروژه‌های من</h2>
-                <div class="projects-grid"></div>
-            </section>
-            
-            <!-- EXPERIENCES PANEL (Content will be injected here) -->
-            <section id="experiences" class="content-panel">
-                <h2 class="section-header">سوابق کاری</h2>
-                <div class="experiences-container"></div>
-            </section>
-            
-            <!-- SKILLS & EDUCATION PANEL (Content will be injected here) -->
-            <section id="skills-education" class="content-panel">
-                <h2 class="section-header">مهارت‌های فنی</h2>
-                <div class="skills-grid"></div>
-                <h2 class="section-header" style="margin-top: 2.5rem; margin-bottom: 1.5rem;">تحصیلات</h2>
-                <div class="education-container"></div>
-            </section>
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">مهارت‌ها</h2>
+                <div class="skills-grid">
+                    <!-- Skill categories will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-        </main>
-    </div>
-
-    <footer class="template-footer">
-        <p>ساخته شده با <a href="https://github.com/MahdiHoseinpoor/JSON-Resume-Kit" target="_blank" rel="noopener noreferrer">JSON Resume Kit</a></p>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> مهدی حسین پور. تمام حقوق محفوظ است.</p>
+            <div class="footer-links" id="footer-links">
+                <!-- Social links will be injected here -->
+            </div>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
 </body>
+
 </html>

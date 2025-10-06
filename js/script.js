@@ -1,159 +1,187 @@
-// Wait for the DOM to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Initialize Functions ---
+    fetchDataAndRender();
+    initMobileNav();
+    updateYear();
+    setActiveNavLink();
+});
 
-    async function loadCvData() {
-        try {
-            let data;
-                // --- Default Mode: Fetch from file ---
-                console.log('No live preview data. Fetching from data.json...');
-                const response = await fetch('data/data.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                data = await response.json();
-
-            // Populate all sections with the final data
-            populateProfile(data.profile);
-            populateHome(data.profile);
-            populateProjects(data.projects);
-            populateExperiences(data.experiences);
-            populateSkills(data.skills);
-            populateEducation(data.education);
-
-        } catch (error) {
-            console.error("Could not load CV data:", error);
-            // Display an error message to the user on the page
-            document.body.innerHTML = `
-                <div style="color: #ff6b6b; padding: 40px; text-align: center; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h2>Error Loading CV Data</h2>
-                    <p>${error.message}</p>
-                    <p>Please ensure the 'data/data.json' file exists and is valid, or that the live preview data is correct.</p>
-                </div>`;
+// --- Fetch and Render Data ---
+async function fetchDataAndRender() {
+    try {
+        const response = await fetch('data/data.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }
-
-    /**
-     * Populates the sidebar profile section.
-     * @param {object} profile - The profile data object.
-     */
-    function populateProfile(profile) {
-        document.title = `رزومه تعاملی - ${profile.name}`;
-        document.querySelector('.profile h1').textContent = profile.name;
-        document.querySelector('.profile p').textContent = profile.title;
-        document.querySelector('.profile-picture img').src = profile.imageUrl;
-    }
-
-    /**
-     * Populates the main "Home" panel.
-     * @param {object} profile - The profile data object.
-     */
-    function populateHome(profile) {
-        document.querySelector('#home .about-me-summary').textContent = profile.summary;
+        const data = await response.json();
         
-        const keyInfoGrid = document.querySelector('#home .key-info-grid');
-        keyInfoGrid.innerHTML = profile.keyInfo.map(info => `
-            <div class="key-info-item">
-                <h4>${info.title}</h4>
-                <p>${info.value}</p>
-            </div>
-        `).join('');
+        // Render all sections with the fetched data
+        renderProfile(data.profile);
+        renderProjects(data.projects);
+        renderExperience(data.experiences);
+        renderEducation(data.education);
+        renderSkills(data.skills);
+        renderFooterLinks(data.profile.links);
 
-        const contactLinks = document.querySelector('#home .contact-links');
-        contactLinks.innerHTML = profile.links.map(link => `
-            <a href="${link.url}" class="contact-link-btn" target="_blank" rel="noopener noreferrer">${link.name}</a>
-        `).join('');
+    } catch (error) {
+        console.error("Could not fetch or render data:", error);
+        // Optionally display an error message to the user on the page
     }
+}
 
-    /**
-     * Populates the "Projects" panel.
-     * @param {Array<object>} projects - An array of project objects.
-     */
-    function populateProjects(projects) {
-        const projectsGrid = document.querySelector('#projects .projects-grid');
-        projectsGrid.innerHTML = projects.map(project => `
-            <div class="project-card">
-                <img src="${project.imageUrl}" alt="${project.title} Logo">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-technologies">
-                    ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
+// --- Render Functions ---
+
+function renderProfile(profile) {
+    const profileSection = document.getElementById('profile');
+    if (!profileSection) return;
+
+    // Sanitize summary to prevent basic HTML injection issues
+    const safeSummary = profile.summary.replace(/\n/g, '<br>');
+
+    profileSection.innerHTML = `
+        <div class="profile-image-container">
+            <img src="${profile.imageUrl}" alt="${profile.name}" class="profile-image">
+        </div>
+        <div class="profile-content">
+            <h1 class="name">${profile.name}</h1>
+            <p class="title">${profile.title}</p>
+            <p class="summary">${safeSummary}</p>
+            <div class="key-info">
+                ${profile.keyInfo.map(info => `
+                    <div class="key-info-item">
+                        <strong>${info.title}:</strong>
+                        <span>${info.value}</span>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="profile-links">
+                ${profile.links.map(link => `
+                    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="profile-link">
+                        ${link.name}
+                    </a>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderProjects(projects) {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (!projectsGrid) return;
+    
+    projectsGrid.innerHTML = projects.map(project => `
+        <div class="project-card">
+            <img src="${project.imageUrl}" alt="${project.title}" class="project-image">
+            <div class="project-content">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-description">${project.description}</p>
+                <div class="project-techs">
+                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                 </div>
             </div>
-        `).join('');
-    }
+        </div>
+    `).join('');
+}
 
-    /**
-     * Populates the "Experiences" panel.
-     * @param {Array<object>} experiences - An array of experience objects.
-     */
-    function populateExperiences(experiences) {
-        const container = document.querySelector('#experiences .experiences-container');
-        container.innerHTML = experiences.map(exp => `
-            <div class="experience-item">
-                <p class="company">${exp.company}</p>
-                <p class="role">${exp.role}</p>
-                <p class="date">${exp.date}</p>
-                <ul class="responsibilities">
-                    ${exp.responsibilities.map(res => `<li>${res}</li>`).join('')}
-                </ul>
+function renderExperience(experiences) {
+    const timeline = document.getElementById('experience-timeline');
+    if (!timeline) return;
+
+    timeline.innerHTML = experiences.map(exp => `
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3 class="timeline-title">${exp.role}</h3>
+                <span class="timeline-subtitle">${exp.company}</span>
+                <span class="timeline-date">${exp.date}</span>
             </div>
-        `).join('');
-    }
+        </div>
+    `).join('');
+}
 
-    /**
-     * Populates the "Skills" section.
-     * @param {Array<object>} skills - An array of skill category objects.
-     */
-    function populateSkills(skills) {
-        const skillsGrid = document.querySelector('#skills-education .skills-grid');
-        skillsGrid.innerHTML = skills.map(category => `
-            <div class="skill-category">
-                <h3>${category.category}</h3>
-                <div class="skills-list">
-                    ${category.items.map(item => `<span>${item}</span>`).join('')}
-                </div>
+function renderEducation(education) {
+    const timeline = document.getElementById('education-timeline');
+    if (!timeline) return;
+
+    timeline.innerHTML = education.map(edu => `
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3 class="timeline-title">${edu.degree}</h3>
+                <span class="timeline-subtitle">${edu.institution}</span>
+                <span class="timeline-date">${edu.date}</span>
             </div>
-        `).join('');
-    }
+        </div>
+    `).join('');
+}
 
-    /**
-     * Populates the "Education" section.
-     * @param {Array<object>} education - An array of education objects.
-     */
-    function populateEducation(education) {
-        const container = document.querySelector('#skills-education .education-container');
-        container.innerHTML = education.map(edu => `
-            <div class="education-item">
-                <p class="institution">${edu.institution}</p>
-                <p class="degree">${edu.degree}</p>
-                <p class="date">${edu.date}</p>
-            </div>
-        `).join('');
-    }
+function renderSkills(skills) {
+    const skillsGrid = document.querySelector('.skills-grid');
+    if (!skillsGrid) return;
 
-    /**
-     * Initializes the tab switching functionality.
-     */
-    function initializeTabs() {
-        const tabs = document.querySelectorAll('.tab-link');
-        const panels = document.querySelectorAll('.content-panel');
+    skillsGrid.innerHTML = skills.map(category => `
+        <div class="skill-category">
+            <h3 class="skill-category-title">${category.category}</h3>
+            <ul class="skill-list">
+                ${category.items.map(item => `<li class="skill-item">${item}</li>`).join('')}
+            </ul>
+        </div>
+    `).join('');
+}
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (tab.classList.contains('active')) return;
+function renderFooterLinks(links) {
+    const footerLinksContainer = document.getElementById('footer-links');
+    if (!footerLinksContainer) return;
 
-                tabs.forEach(t => t.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
+    footerLinksContainer.innerHTML = links.map(link => `
+        <a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.name}</a>
+    `).join('');
+}
 
-                tab.classList.add('active');
-                const targetPanelId = tab.getAttribute('data-tab');
-                document.getElementById(targetPanelId).classList.add('active');
-            });
+// --- UI Interactivity ---
+
+function initMobileNav() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            navToggle.classList.toggle('active');
         });
     }
+    
+    // Close nav when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            navToggle.classList.remove('active');
+        });
+    });
+}
 
-    // --- Main Execution ---
-    loadCvData();
-    initializeTabs();
-});
+function updateYear() {
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}
+
+function setActiveNavLink() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === entry.target.id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { rootMargin: '-50% 0px -50% 0px' }); // Activates when section is in the middle of the viewport
+
+    sections.forEach(section => observer.observe(section));
+}
