@@ -350,6 +350,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 1.5rem; /* Added margin to create space for the link */
 }
 
 .tech-tag {
@@ -358,6 +359,24 @@ section {
     font-size: 0.8rem;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
+}
+
+/* --- NEW STYLES FOR THE PROJECT LINK --- */
+.project-link {
+    display: inline-block;
+    margin-top: auto; /* Pushes the link to the bottom of the card */
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
 }
 
 /* --- Experience & Education Section --- */

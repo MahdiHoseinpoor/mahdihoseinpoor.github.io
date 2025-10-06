@@ -40,7 +40,7 @@ function renderProfile(profile) {
 
     profileSection.innerHTML = `
         <div class="profile-image-container">
-            <img src="${profile.imageUrl}" alt="${profile.name}" class="profile-image">
+            <img src="${profile.imageUrl}" alt="تصویر پروفایل ${profile.name}" class="profile-image">
         </div>
         <div class="profile-content">
             <h1 class="name">${profile.name}</h1>
@@ -69,19 +69,28 @@ function renderProjects(projects) {
     const projectsGrid = document.querySelector('.projects-grid');
     if (!projectsGrid) return;
     
-    projectsGrid.innerHTML = projects.map(project => `
-        <div class="project-card">
-            <img src="${project.imageUrl}" alt="${project.title}" class="project-image">
-            <div class="project-content">
-                <h3 class="project-title">${project.title}</h3>
-                <p class="project-description">${project.description}</p>
-                <div class="project-techs">
-                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+    projectsGrid.innerHTML = projects.map(project => {
+        // Create the repository link HTML only if repoUrl exists
+        const repoLink = project.repoUrl 
+            ? `<a href="${project.repoUrl}" class="project-link" target="_blank" rel="noopener noreferrer">مشاهده در گیت‌هاب</a>`
+            : '';
+
+        return `
+            <div class="project-card">
+                <img src="${project.imageUrl}" alt="تصویر پروژه ${project.title}" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-techs">
+                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    ${repoLink}
                 </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
+
 
 function renderExperience(experiences) {
     const timeline = document.getElementById('experience-timeline');

@@ -3,7 +3,7 @@
     "name": "مهدی حسین پور",
     "title": "توسعه دهنده دات نت",
     "imageUrl": "https://avatars.githubusercontent.com/u/72643828",
-    "summary": "من دانشجوی کارشناسی علوم کامپیوتر در دانشگاه شهید بهشتی و توسعه‌دهنده‌ی بک‌اند با تجربه عملی در C# و ASP.NET هستم. از دوران دبیرستان وارد حوزه برنامه‌نویسی شده‌ام و تاکنون پروژه‌های متعددی را طراحی و پیاده‌سازی کرده‌ام. در میان آن‌ها، پروژه متن‌باز Backender از شاخص‌ترین دستاوردهایم به شمار می‌رود که تاکنون بیش از ۱۴ هزار بار در NuGet دانلود شده است.\n",
+    "summary": "من دانشجوی کارشناسی علوم کامپیوتر در دانشگاه شهید بهشتی و توسعه‌دهنده‌ی بک‌اند با تجربه عملی در C# و ASP.NET هستم. از دوران دبیرستان وارد حوزه برنامه‌نویسی شده‌ام و تاکنون پروژه‌های متعددی را طراحی و پیاده‌سازی کرده‌ام. در میان آن‌ها، پروژه متن‌باز Backender از شاخص‌ترین دستاوردهایم به شمار می‌رود که تاکنون بیش از ۱۴ هزار بار در NuGet دانلود شده است.\\n",
     "keyInfo": [
       {
         "title": "نقش اصلی",
@@ -34,7 +34,8 @@
         "C#",
         ".NET",
         "Code Gen"
-      ]
+      ],
+      "repoUrl": "https://github.com/MahdiHoseinpoor/Backender"
     },
     {
       "title": "EasyPay",
@@ -45,7 +46,8 @@
         "CQRS",
         "DDD",
         "Blazor"
-      ]
+      ],
+      "repoUrl": "https://github.com/MahdiHoseinpoor/EasyPay"
     },
     {
       "title": "JSocket2",
@@ -56,7 +58,8 @@
         "Sockets",
         "Design Patterns",
         "OOP"
-      ]
+      ],
+      "repoUrl": "https://github.com/MahdiHoseinpoor/JSocket2"
     },
     {
       "title": "Telegram Clone",
@@ -67,7 +70,8 @@
         "PostgreSQL",
         "JScoket2",
         "Java"
-      ]
+      ],
+      "repoUrl": "https://github.com/11-devs/Telegram-clone"
     }
   ],
   "experiences": [
