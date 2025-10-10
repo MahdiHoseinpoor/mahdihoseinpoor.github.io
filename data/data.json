@@ -39,7 +39,7 @@
     },
     {
       "title": "EasyPay",
-      "imageUrl": "https://dummyimage.com/1200x630/000/fff&text=EasyPay",
+      "imageUrl": "https://github.com/MahdiHoseinpoor/EasyPay/raw/main/images/Header.png",
       "description": "پلتفرم مالی مدرن با NET 9. که بر اساس اصول CQRS, DDD و Clean Architecture ساخته شده است.",
       "technologies": [
         ".NET 9",
