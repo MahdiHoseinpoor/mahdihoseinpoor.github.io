@@ -1,17 +1,17 @@
 {
   "profile": {
     "name": "مهدی حسین پور",
-    "title": "توسعه دهنده دات نت",
+    "title": "مهندس نرم افزار",
     "imageUrl": "https://avatars.githubusercontent.com/u/72643828",
     "summary": "من دانشجوی کارشناسی علوم کامپیوتر در دانشگاه شهید بهشتی و توسعه‌دهنده‌ی بک‌اند با تجربه عملی در C# و ASP.NET هستم. از دوران دبیرستان وارد حوزه برنامه‌نویسی شده‌ام و تاکنون پروژه‌های متعددی را طراحی و پیاده‌سازی کرده‌ام. در میان آن‌ها، پروژه متن‌باز Backender از شاخص‌ترین دستاوردهایم به شمار می‌رود که تاکنون نزدیک به 15 هزار بار در NuGet دانلود شده است.",
     "keyInfo": [
       {
         "title": "نقش اصلی",
-        "value": "توسعه دهنده دات نت"
+        "value": "مهندس نرم افزار"
       },
       {
         "title": "مهارت های کلیدی",
-        "value": "C#, .NET, EntityFramework, Asp.net, Git"
+        "value": "C#, .NET, ASP.NET Core, Node.js, SQL Server, MongoDB, Docker, Git"
       }
     ],
     "links": [
@@ -76,6 +76,15 @@
   ],
   "experiences": [
     {
+      "company": "طاقچه",
+      "role": "مهندس نرم افزار",
+      "date": "آذر 1404 - اکنون",
+      "responsibilities": [
+        "توسعه و نگهداری سرویس‌های بک‌اند",
+        "طراحی و پیاده‌سازی قابلیت‌های جدید"
+      ]
+    },
+    {
       "company": "دانشگاه شهید بهشتی",
       "role": "TA برنامه نویسی مقدماتی",
       "date": " مهر 1404 - اکنون",
@@ -94,11 +103,22 @@
       "items": [
         "C#",
         "Java",
+        "TypeScript",
         "SQL",
         ".NET",
         "ASP.NET Core",
         "Entity Framework",
-        "Blazor"
+        "Blazor",
+        "Node.js"
+      ]
+    },
+    {
+      "category": "پایگاه داده",
+      "items": [
+        "SQL Server",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis"
       ]
     },
     {
@@ -107,8 +127,13 @@
         "Clean Architecture",
         "DDD",
         "CQRS",
+        "Microservices",
         "Git",
-        "NuGet"
+        "NuGet",
+        "Docker",
+        "GitLab CI/CD",
+        "Prometheus",
+        "Grafana"
       ]
     }
   ],
